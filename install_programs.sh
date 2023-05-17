@@ -21,6 +21,14 @@ sudo snap install remmina;
 #habilitar los programas instalados con SNAP
 sudo systemctl enable snapd.apparmor;
 
+#instalacion de Balena Etcher
+cd ~/Descargas;
+wget https://github.com/balena-io/etcher/releases/tag/v1.18.8/balena-etcher_1.18.8_amd64.deb;
+sudo dpkg -i balena-etcher_1.18.8_amd64.deb;
+sudo apt-get --fix-broken install;
+rm balena-etcher_1.18.8_amd64.deb;
+cd ..;
+
 #instalacion ANYDESK
 wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | apt-key add -;
 echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list;
