@@ -1,4 +1,15 @@
 #!/bin/bash
+#instalacion ANYDESK
+sudo su;
+wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -;
+echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list; #linea que genera problema de ejecucion
+gpg --keyserver keyserver.ubuntu.com --recv 18DF3741CDFFDE29;
+gpg --armor --export 18DF3741CDFFDE29 | sudo apt-key add -;
+sudo apt-get update;
+sudo apt-get install anydesk;
+sudo apt-get --fix-broken install;
+exit;
+
 #instalacion de SNAP
 sudo apt-get update;
 sudo apt-get install snapd -y;
@@ -28,14 +39,6 @@ sudo dpkg -i balena-etcher_1.18.8_amd64.deb;
 sudo apt-get --fix-broken install;
 rm balena-etcher_1.18.8_amd64.deb;
 cd ..;
-
-#instalacion ANYDESK
-wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | apt-key add -;
-echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list;
-gpg --keyserver keyserver.ubuntu.com --recv 18DF3741CDFFDE29;
-gpg --armor --export 18DF3741CDFFDE29 | sudo apt-key add -;
-sudo apt-get update;
-sudo apt-get install anydesk;
 
 #instalacion de virtualbox
 sudo apt update
